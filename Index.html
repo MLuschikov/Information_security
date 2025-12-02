@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <script src="Index.js"></script>
+        <script src="lab1.js"></script>
+    </head>
+    <body>
+        <button class="menu-item" data-content="lab1">lab1</button>
+        <button class="menu-item" data-content="lab2">lab2</button>
+        <button class="menu-item" data-content="lab3">lab3</button>
+        <div class="content-item" id="lab1">
+            <h2>Лабораторная №1</h2>
+            <p>
+                Текст: <input class="lab1-item" type="text" id="inputText">
+            </p>
+            <p>
+                Ключ: <input class="lab1-item" type="text" id="inputKey">
+            </p>
+            <button class="lab1-item" id="decrypt">Расшифровать</button>
+            <button class="lab1-item" id="hack">Взломать</button>
+            <button class="lab1-item" id="encrypt">Засшифровать</button>
+            <p>
+                Шифр текст: <span class="lab1-item" id="result" class="txt"></span>
+            </p>
+        </div>
+        <div class="content-item" id="lab2" hidden="true">
+            <h2>Лабораторная №2</h2>
+            <input type="text" title="Текст">
+        </div>
+        <div class="content-item" id="lab3" hidden="true">
+            <h2>Лабораторная №3</h2>
+            <input type="text" title="Текст">
+        </div>
+    </body>
+</html>
