@@ -67,14 +67,51 @@ function addEventsLab2() {
     }
 
     items[1].addEventListener('keyup', (event) => validationLetters2(event));
+    items[2].addEventListener('keyup', (event) => validationLetters2(event));
     items[3].addEventListener('click', lab2Decrypt);
     items[4].addEventListener('click', lab2Encrypt);
+}
+
+function addEventsLab3() {
+    let items = document.querySelectorAll(".lab3-item");
+
+    let tr = document.createElement('tr');
+    let td = document.createElement('td');
+    td.textContent = ' ';
+    tr.appendChild(td);
+    for (let j = 0; j < 16; j++) {
+        let td = document.createElement('td');
+        td.textContent = SBlockSymbols[j];
+        tr.appendChild(td);
+    }
+    items[0].appendChild(tr);
+
+    for (let i = 0; i < 8; i++) {
+        let tr = document.createElement('tr');
+
+        let td = document.createElement('td');
+        td.textContent = i + 1;
+        tr.appendChild(td);
+
+        for (let j = 0; j < 16; j++) {
+            let td = document.createElement('td');
+            td.textContent = SBlocks[i][j];
+            tr.appendChild(td);
+        }
+
+        items[0].appendChild(tr);
+    }
+
+    items[3].addEventListener('click', lab3GenerateKey);
+    items[4].addEventListener('click', lab3Decrypt);
+    items[5].addEventListener('click', lab3Encrypt);
 }
 
 window.onload = function () {
 
     addEventsLab1();
     addEventsLab2();
+    addEventsLab3();
 
     let menuButtons = document.querySelectorAll('.menu-item');
     for (var i = 0; i < menuButtons.length; i++) {

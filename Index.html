@@ -3,6 +3,7 @@
         <script src="Index.js"></script>
         <script src="lab1.js"></script>
         <script src="lab2.js"></script>
+        <script src="lab3.js"></script>
     </head>
     <body>
         <button class="menu-item" data-content="lab1">lab1</button>
@@ -14,7 +15,7 @@
                 Текст: <input class="lab1-item" type="text" id="inputText">
             </p>
             <p>
-                Ключ: <input class="lab1-item" type="text" id="inputKey">
+                Ключ: <input class="lab1-item" type="number" id="inputKey">
             </p>
             <button class="lab1-item" id="decrypt">Расшифровать</button>
             <button class="lab1-item" id="hack">Взломать</button>
@@ -39,8 +40,20 @@
             </p>
         </div>
         <div class="content-item" id="lab3" hidden="true">
-            <h2>Лабораторная №3</h2>
-            <input type="text" title="Текст">
+            <h2>Лабораторная №3 ГОСТ-28147-89</h2>
+            <table class="lab3-item" id="table" border></table>
+            <p>
+                Текст: <input class="lab3-item" type="text" id="inputText">
+            </p>
+            <p>
+                Ключ: <input class="lab3-item" type="text" id="inputKey">
+            </p>
+            <button class="lab3-item" id="generateKey">Сгенерировать ключ</button>
+            <button class="lab3-item" id="decrypt">Расшифровать</button>
+            <button class="lab3-item" id="encrypt">Зашифровать</button>
+            <p>
+                Результат: <span class="lab3-item" id="result" class="txt"></span>
+            </p>
         </div>
     </body>
 </html>
