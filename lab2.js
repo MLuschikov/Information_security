@@ -69,35 +69,35 @@ function lab2Decrypt() {
 
     shufflePlaces = sortMatrixByString(key, shufflePlaces)[0];
 
-    let encrMatrix = [];
+    let decrMatrix = [];
     for (let i = 0; i < text.length; i += key.length)
-        encrMatrix.push(text.substring(i, i + key.length).split(''));
+        decrMatrix.push(text.substring(i, i + key.length).split(''));
 
     let lastStr = [];
 
     let count = 0;
     for (let i = 0; i < key.length; i++) {
-        if (shufflePlaces[i] >= encrMatrix[encrMatrix.length - 1].length)
+        if (shufflePlaces[i] >= decrMatrix[decrMatrix.length - 1].length)
             lastStr.push('');
         else {
-            lastStr.push(encrMatrix[encrMatrix.length - 1][count]);
+            lastStr.push(decrMatrix[decrMatrix.length - 1][count]);
             count++;
         }
     }
 
-    encrMatrix[encrMatrix.length - 1] = lastStr;
+    decrMatrix[decrMatrix.length - 1] = lastStr;
 
-    let encrStr = '';
-    sortMatrixByArr(shufflePlaces, encrMatrix).forEach(element => {
-        encrStr += element.join('');
+    let ADFGVXdecrStr = '';
+    sortMatrixByArr(shufflePlaces, decrMatrix).forEach(element => {
+        ADFGVXdecrStr += element.join('');
     });
 
-    let decText = '';
-    for (let i = 0; i < encrStr.length; i += 2) {
-        decText += shuffledSymbols[ADFGVX.indexOf(encrStr[i]) * 6 + ADFGVX.indexOf(encrStr[i + 1])];
+    let decrText = '';
+    for (let i = 0; i < ADFGVXdecrStr.length; i += 2) {
+        decrText += shuffledSymbols[ADFGVX.indexOf(ADFGVXdecrStr[i]) * 6 + ADFGVX.indexOf(ADFGVXdecrStr[i + 1])];
     }
 
-    items[5].innerHTML = decText;
+    items[5].innerHTML = decrText;
 }
 
 function lab2Encrypt() {
@@ -105,24 +105,24 @@ function lab2Encrypt() {
     let text = items[1].value;
     let key = items[2].value;
 
-    let decText = '';
+    let encrText = '';
 
     for (let i = 0; i < text.length; i++) {
         let symbolNumber = shuffledSymbols.indexOf(text[i]);
-        decText += ADFGVX[Math.floor(symbolNumber / 6)] + ADFGVX[symbolNumber % 6];
+        encrText += ADFGVX[Math.floor(symbolNumber / 6)] + ADFGVX[symbolNumber % 6];
     }
 
     let encrMatrix = [];
-    for (let i = 0; i < decText.length; i += key.length)
-        encrMatrix.push(decText.substring(i, i + key.length).split(''));
+    for (let i = 0; i < encrText.length; i += key.length)
+        encrMatrix.push(encrText.substring(i, i + key.length).split(''));
 
     for (let i = encrMatrix[encrMatrix.length - 1].length; i < key.length; i++)
         encrMatrix[encrMatrix.length - 1].push('');
 
-    decText = '';
+    let encrTextShuffle = '';
     sortMatrixByString(key, encrMatrix).forEach(element => {
-        decText += element.join('');
+        encrTextShuffle += element.join('');
     });
 
-    items[5].innerHTML = decText;
+    items[5].innerHTML = encrTextShuffle;
 }

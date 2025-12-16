@@ -31,11 +31,6 @@ function GenerateKey() {
     return rndKey;
 }
 
-function lab3GenerateKey() {
-    let items = document.querySelectorAll(".lab3-item");
-    items[2].value = GenerateKey();
-}
-
 function binToString(binaryString) {
     const cleaned = binaryString.replace(/[^01]/g, '');
 
@@ -67,8 +62,7 @@ function binToInt(bits) {
 }
 
 function intToBin(intNum, symbolCount) {
-    let bits = (intNum).toString(2).padStart(symbolCount, '0');
-    return bits;
+    return (intNum).toString(2).padStart(symbolCount, '0');
 }
 
 function PQmod232(elem, Qj) {
@@ -102,13 +96,13 @@ function GOSTDecrypt(text, key) {
 
     let binText = text;
 
-    let T = [];
+    let C = [];
 
     for (let i = 0; i < binText.length; i += 64)
-        T.push(binText.substring(i, i + 64));
+        C.push(binText.substring(i, i + 64));
 
-    for (let i = T[T.length - 1].length; i < 64; i += 8)
-        T[T.length - 1] += '00100000';
+    for (let i = C[C.length - 1].length; i < 64; i += 8)
+        C[C.length - 1] += '00100000';
 
     let Q = [];
     key = strToBin(key);
@@ -116,11 +110,11 @@ function GOSTDecrypt(text, key) {
         Q.push(key.substring(32 * i, 32 * (i + 1)));
     }
 
-    let C = [];
-    for (let k = 0; k < T.length; k++) {
+    let T = [];
+    for (let k = 0; k < C.length; k++) {
 
-        let L = T[k].substring(0, T[k].length / 2);
-        let R = T[k].substring(T[k].length / 2, T[k].length);
+        let L = C[k].substring(0, C[k].length / 2);
+        let R = C[k].substring(C[k].length / 2, C[k].length);
 
         for (let i = 1; i <= 32; i++) {
             let v = L;
@@ -131,23 +125,10 @@ function GOSTDecrypt(text, key) {
             L = XOR(L, R);
             R = v;
         }
-        C.push(L + R);
+        T.push(L + R);
     }
 
-    return binToString(C.join(''));
-}
-
-function lab3Decrypt() {
-    let items = document.querySelectorAll(".lab3-item");
-    let text = items[1].value;
-    console.log(text)
-    for (let i = 0; i < text.length; i++) {
-        if (text[i] != '0' && text[i] != '1') {
-            alert('Ошибка ввода');
-            return;
-        }
-    }
-    items[6].innerHTML = GOSTDecrypt(text, items[2].value);
+    return binToString(T.join(''));
 }
 
 function GOSTEncrypt(text, key) {
@@ -187,6 +168,24 @@ function GOSTEncrypt(text, key) {
     }
 
     return C.join('');
+}
+
+function lab3GenerateKey() {
+    let items = document.querySelectorAll(".lab3-item");
+    items[2].value = GenerateKey();
+}
+
+function lab3Decrypt() {
+    let items = document.querySelectorAll(".lab3-item");
+    let text = items[1].value;
+    console.log(text)
+    for (let i = 0; i < text.length; i++) {
+        if (text[i] != '0' && text[i] != '1') {
+            alert('Ошибка ввода');
+            return;
+        }
+    }
+    items[6].innerHTML = GOSTDecrypt(text, items[2].value);
 }
 
 function lab3Encrypt() {

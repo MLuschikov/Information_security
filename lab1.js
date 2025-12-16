@@ -6,20 +6,20 @@ function lab1Decrypt() {
     let text = items[0].value;
     let key = items[1].value - 0;
 
-    let decText = '';
+    let decrText = '';
 
     for (let i = 0; i < text.length; i++) {
         let letterCode;
         if(text[i].charCodeAt() < 1072) {
             letterCode = topLetters.indexOf(text[i]);
-            decText += topLetters[(letterCode - key) % 33];
+            decrText += topLetters[(letterCode - key) % 33];
         }
         else{
             letterCode = lowLetters.indexOf(text[i]);
-            decText += lowLetters[(letterCode - key) % 33];
+            decrText += lowLetters[(letterCode - key) % 33];
         }
     }
-    items[5].innerHTML = decText;
+    items[5].innerHTML = decrText;
 }
 
 function lab1Hack() {
@@ -31,18 +31,18 @@ function lab1Encrypt() {
     let text = items[0].value;
     let key = items[1].value - 0;
 
-    let decText = '';
+    let encrText = '';
 
     for (let i = 0; i < text.length; i++) {
         let letterCode;
         if(text[i].charCodeAt() < 1072) {
             letterCode = topLetters.indexOf(text[i]);
-            decText += topLetters[(letterCode + key) % 33];
+            encrText += topLetters[(letterCode + key) % 33];
         }
         else{
             letterCode = lowLetters.indexOf(text[i]);
-            decText += lowLetters[(letterCode + key) % 33];
+            encrText += lowLetters[(letterCode + key) % 33];
         }
     }
-    items[5].innerHTML = decText;
+    items[5].innerHTML = encrText;
 }
