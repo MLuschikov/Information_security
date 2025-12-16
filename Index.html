@@ -4,11 +4,14 @@
         <script src="lab1.js"></script>
         <script src="lab2.js"></script>
         <script src="lab3.js"></script>
+        <script src="lab4.js"></script>
     </head>
     <body>
         <button class="menu-item" data-content="lab1">lab1</button>
         <button class="menu-item" data-content="lab2">lab2</button>
         <button class="menu-item" data-content="lab3">lab3</button>
+        <button class="menu-item" data-content="lab4">lab4</button>
+        <button class="menu-item" data-content="lab5">lab5</button>
         <div class="content-item" id="lab1">
             <h2>Лабораторная №1 одноалфавитная замена</h2>
             <p>
@@ -53,6 +56,21 @@
             <button class="lab3-item" id="encrypt">Зашифровать</button>
             <p>
                 Результат: <span class="lab3-item" id="result" class="txt"></span>
+            </p>
+        </div>
+        <div class="content-item" id="lab4" hidden="true">
+            <h2>Лабораторная №4 Поточный шифр</h2>
+            <p>
+                Текст: <input class="lab4-item" type="text" id="inputText">
+            </p>
+            <p>
+                Ключ: <input class="lab4-item" type="text" id="inputKey">
+            </p>
+            <button class="lab4-item" id="generateKey">Сгенерировать ключ</button>
+            <button class="lab4-item" id="decrypt">Расшифровать</button>
+            <button class="lab4-item" id="encrypt">Зашифровать</button>
+            <p>
+                Результат: <span class="lab4-item" id="result" class="txt"></span>
             </p>
         </div>
     </body>
