@@ -18,11 +18,11 @@ function lab5GenerateKey() {
 
     let N = p * q;
     let phiN = (p - 1) * (q - 1);
-    let e = getRndE(N);
+    let e = getRndE(phiN);
 
     let d = modInverse(e, phiN);
     while ((e * d) % phiN != 1) {
-        e = getRndE(N);
+        e = getRndE(phiN);
         d = modInverse(e, phiN);
     }
 
