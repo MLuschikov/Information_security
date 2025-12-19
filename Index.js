@@ -115,12 +115,21 @@ function addEventsLab4() {
     items[4].addEventListener('click', lab4Encrypt);
 }
 
+function addEventsLab5() {
+    let items = document.querySelectorAll(".lab5-item");
+
+    items[5].addEventListener('click', lab5GenerateKey);
+    items[6].addEventListener('click', lab5Decrypt);
+    items[7].addEventListener('click', lab5Encrypt);
+}
+
 window.onload = function () {
 
     addEventsLab1();
     addEventsLab2();
     addEventsLab3();
     addEventsLab4();
+    addEventsLab5();
 
     let menuButtons = document.querySelectorAll('.menu-item');
     for (var i = 0; i < menuButtons.length; i++) {

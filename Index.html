@@ -5,6 +5,8 @@
         <script src="lab2.js"></script>
         <script src="lab3.js"></script>
         <script src="lab4.js"></script>
+        <script src="lab5.js"></script>
+        <script src="simpleNumbers.js"></script>
     </head>
     <body>
         <button class="menu-item" data-content="lab1">lab1</button>
@@ -15,10 +17,10 @@
         <div class="content-item" id="lab1">
             <h2>Лабораторная №1 одноалфавитная замена</h2>
             <p>
-                Текст: <input class="lab1-item" type="text" id="inputText">
+                Текст: <input class="lab1-item" type="text" id="inputText1">
             </p>
             <p>
-                Ключ: <input class="lab1-item" type="number" id="inputKey">
+                Ключ: <input class="lab1-item" type="number" id="inputKey1">
             </p>
             <button class="lab1-item" id="decrypt">Расшифровать</button>
             <button class="lab1-item" id="hack">Взломать</button>
@@ -31,10 +33,10 @@
             <h2>Лабораторная №2 Шифр ADFGVX(шифр Первой мировой)</h2>
             <table class="lab2-item" id="table" border></table>
             <p>
-                Текст: <input class="lab2-item" type="text" id="inputText">
+                Текст: <input class="lab2-item" type="text" id="inputText2">
             </p>
             <p>
-                Ключ: <input class="lab2-item" type="text" id="inputKey">
+                Ключ: <input class="lab2-item" type="text" id="inputKey2">
             </p>
             <button class="lab2-item" id="decrypt">Расшифровать</button>
             <button class="lab2-item" id="encrypt">Зашифровать</button>
@@ -46,10 +48,10 @@
             <h2>Лабораторная №3 ГОСТ-28147-89</h2>
             <table class="lab3-item" id="table" border></table>
             <p>
-                Текст: <input class="lab3-item" type="text" id="inputText">
+                Текст: <input class="lab3-item" type="text" id="inputText3">
             </p>
             <p>
-                Ключ: <input class="lab3-item" type="text" id="inputKey">
+                Ключ: <input class="lab3-item" type="text" id="inputKey3">
             </p>
             <button class="lab3-item" id="generateKey">Сгенерировать ключ</button>
             <button class="lab3-item" id="decrypt">Расшифровать</button>
@@ -61,16 +63,41 @@
         <div class="content-item" id="lab4" hidden="true">
             <h2>Лабораторная №4 Поточный шифр</h2>
             <p>
-                Текст: <input class="lab4-item" type="text" id="inputText">
+                Текст: <input class="lab4-item" type="text" id="inputText4">
             </p>
             <p>
-                Ключ: <input class="lab4-item" type="text" id="inputKey">
+                Ключ: <input class="lab4-item" type="text" id="inputKey4">
             </p>
             <button class="lab4-item" id="generateKey">Сгенерировать ключ</button>
             <button class="lab4-item" id="decrypt">Расшифровать</button>
             <button class="lab4-item" id="encrypt">Зашифровать</button>
             <p>
                 Результат: <span class="lab4-item" id="result" class="txt"></span>
+            </p>
+        </div>
+        <div class="content-item" id="lab5" hidden="true">
+            <h2>Лабораторная №5 RSA</h2>
+            
+            <p>
+                Текст: <input class="lab5-item" type="number" id="inputText5">
+            </p>
+            <p>
+                p: <input class="lab5-item" type="password" placeholder="Секретно введите секретный p(число)" size="30" id="inputPByHand5">
+            </p>
+            <p>
+                q: <input class="lab5-item" type="password" placeholder="Секретно введите секретный q(число)" size="30" id="inputQByHand5">
+            </p>
+            <p>
+                Открытый ключ: <input class="lab5-item" type="text" id="inputOpenKey5">
+            </p>
+            <p>
+                Секретный ключ: <input class="lab5-item" type="password" id="inputSekretKey5">
+            </p>
+            <button class="lab5-item" id="generateKey">Сгенерировать ключ</button>
+            <button class="lab5-item" id="decrypt">Расшифровать</button>
+            <button class="lab5-item" id="encrypt">Зашифровать</button>
+            <p>
+                Результат: <span class="lab5-item" id="result" class="txt"></span>
             </p>
         </div>
     </body>
